@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.ronald.peluqueriacanina.persistencia;
 
 import com.ronald.peluqueriacanina.logica.Mascota;
@@ -17,7 +14,7 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author r
+ * @author Ronald Almada
  */
 public class MascotaJpaController implements Serializable {
 
