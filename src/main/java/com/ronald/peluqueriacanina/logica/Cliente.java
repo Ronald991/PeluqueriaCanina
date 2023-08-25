@@ -22,18 +22,15 @@ public class Cliente implements Serializable {
     private String nombre;
     private String telefono;
     private String direccion;
-    @OneToOne
-    private Mascota mascota;
     
     //Ctors
     public Cliente(){}
-    public Cliente(int id, String nombre, String telefono, String direccion,
-            Mascota mascota){
+    public Cliente(int id, String nombre, String telefono, String direccion){
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.mascota = mascota;
+        
     }
 
     public int getId() {
@@ -67,7 +64,6 @@ public class Cliente implements Serializable {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
     
     
 }

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -21,14 +22,17 @@ public class Mascota implements Serializable {
     private String nombre;
     private String raza;
     private String color;
-    private boolean esAlergico;
-    private boolean esEspecial;
+    private String esAlergico;
+    private String esEspecial;
     private String observaciones;
+    @OneToOne
+    private Cliente cliente;
+    
 
     public Mascota() {
     }
 
-    public Mascota(int num_cliente, String nombre, String raza, String color, boolean esAlergico, boolean esEspecial, String observaciones) {
+    public Mascota(int num_cliente, String nombre, String raza, String color, String esAlergico, String esEspecial, String observaciones) {
         this.num_cliente = num_cliente;
         this.nombre = nombre;
         this.raza = raza;
@@ -70,19 +74,19 @@ public class Mascota implements Serializable {
         this.color = color;
     }
 
-    public boolean isEsAlergico() {
+    public String isEsAlergico() {
         return esAlergico;
     }
 
-    public void setEsAlergico(boolean esAlergico) {
+    public void setEsAlergico(String esAlergico) {
         this.esAlergico = esAlergico;
     }
 
-    public boolean isEsEspecial() {
+    public String isEsEspecial() {
         return esEspecial;
     }
 
-    public void setEsEspecial(boolean esEspecial) {
+    public void setEsEspecial(String esEspecial) {
         this.esEspecial = esEspecial;
     }
 
@@ -92,6 +96,14 @@ public class Mascota implements Serializable {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+    
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     
     
