@@ -51,7 +51,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnCrearCliente.setText("Buscar Cliente");
         btnCrearCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearClienteActionPerformed(evt);
+                btnBuscarCliente(evt);
             }
         });
 
@@ -136,16 +136,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearNuevoClienteActionPerformed
-        // TODO add your handling code here:
+        
+        VentanaNuevoCliente ventanaCrear = new VentanaNuevoCliente();
+        ventanaCrear.setTitle("Añadir Nuevo Cliente");
+        ventanaCrear.setVisible(true);
+        ventanaCrear.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCrearNuevoClienteActionPerformed
-
-    private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCrearClienteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnBuscarCliente(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCliente
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarCliente
 
 
 

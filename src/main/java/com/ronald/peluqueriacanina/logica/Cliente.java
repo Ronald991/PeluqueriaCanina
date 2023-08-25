@@ -1,24 +1,39 @@
 
 package com.ronald.peluqueriacanina.logica;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author Ronald Almada
  */
-public class Cliente {
+
+@Entity
+public class Cliente implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String nombre;
     private String telefono;
     private String direccion;
+    @OneToOne
+    private Mascota mascota;
     
     //Ctors
     public Cliente(){}
-    public Cliente(int id, String nombre, String telefono, String direccion){
+    public Cliente(int id, String nombre, String telefono, String direccion,
+            Mascota mascota){
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
+        this.mascota = mascota;
     }
 
     public int getId() {
