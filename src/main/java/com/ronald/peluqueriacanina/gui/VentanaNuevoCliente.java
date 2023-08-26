@@ -49,7 +49,7 @@ public class VentanaNuevoCliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         labelTitulo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panelAcciones.setBackground(new java.awt.Color(222, 222, 222));
 
