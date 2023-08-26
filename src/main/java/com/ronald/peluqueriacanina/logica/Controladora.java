@@ -2,6 +2,7 @@
 package com.ronald.peluqueriacanina.logica;
 
 import com.ronald.peluqueriacanina.persistencia.ControladoraPersistencia;
+import java.util.List;
 
 /**
  *
@@ -40,6 +41,10 @@ public class Controladora {
         
         controladoraPersistencia.crearCliente(cliente, mascota);
         
+    }
+
+    public List<Mascota> getDatos() {
+        return controladoraPersistencia.getDatos();
     }
 
    

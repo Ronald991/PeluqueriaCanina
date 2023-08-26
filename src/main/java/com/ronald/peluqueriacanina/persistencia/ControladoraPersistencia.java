@@ -3,6 +3,7 @@ package com.ronald.peluqueriacanina.persistencia;
 
 import com.ronald.peluqueriacanina.logica.Cliente;
 import com.ronald.peluqueriacanina.logica.Mascota;
+import java.util.List;
 
 /**
  *
@@ -19,6 +20,10 @@ public class ControladoraPersistencia {
         
         //crea la mascota nueva en la base de datos
         mascotaJPA.create(mascota);
+    }
+
+    public List<Mascota> getDatos() {
+        return mascotaJPA.findMascotaEntities();
     }
     
 }
