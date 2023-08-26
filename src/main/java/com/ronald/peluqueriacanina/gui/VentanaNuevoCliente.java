@@ -50,6 +50,7 @@ public class VentanaNuevoCliente extends javax.swing.JFrame {
         labelTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         panelAcciones.setBackground(new java.awt.Color(222, 222, 222));
 

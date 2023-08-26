@@ -31,6 +31,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         iconPerrito = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         panelPrincipal.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -134,21 +135,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Funcionalidad para el boton de Añadir a un nuevo Cliente
     private void btnCrearNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearNuevoClienteActionPerformed
         
+        //Crea una nueva ventana para ingresar los datos del Cliente
         VentanaNuevoCliente ventanaCrear = new VentanaNuevoCliente();
         ventanaCrear.setTitle("Añadir Nuevo Cliente");
         ventanaCrear.setVisible(true);
         ventanaCrear.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCrearNuevoClienteActionPerformed
-
+    
+    //Función para implementar la salida del programa
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
-
+    
+    //Función para buscar a un Cliente ya existente, también para eliminar o
+    //modificar al cliente existente
     private void btnBuscarCliente(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCliente
-        // TODO add your handling code here:
+        //Crea una nueva ventana
+        VentanaBuscarCliente ventanaBuscar = new VentanaBuscarCliente();
+        ventanaBuscar.setTitle("Buscar a Cliente");
+        ventanaBuscar.setLocationRelativeTo(null);
+        ventanaBuscar.setVisible(true);
     }//GEN-LAST:event_btnBuscarCliente
 
 
