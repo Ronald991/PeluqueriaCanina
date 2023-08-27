@@ -47,6 +47,10 @@ public class Controladora {
         return controladoraPersistencia.getDatos();
     }
 
+    public void eliminarMascota(int numeroCliente) {
+        controladoraPersistencia.eliminarCliente(numeroCliente);
+    }
+
    
     
 }
