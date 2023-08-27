@@ -3,7 +3,10 @@ package com.ronald.peluqueriacanina.persistencia;
 
 import com.ronald.peluqueriacanina.logica.Cliente;
 import com.ronald.peluqueriacanina.logica.Mascota;
+import com.ronald.peluqueriacanina.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,6 +27,14 @@ public class ControladoraPersistencia {
 
     public List<Mascota> getDatos() {
         return mascotaJPA.findMascotaEntities();
+    }
+
+    public void eliminarCliente(int numeroCliente) {
+        try {
+            mascotaJPA.destroy(numeroCliente);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
