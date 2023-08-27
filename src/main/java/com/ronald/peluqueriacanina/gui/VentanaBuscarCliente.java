@@ -3,6 +3,7 @@ package com.ronald.peluqueriacanina.gui;
 import com.ronald.peluqueriacanina.logica.Controladora;
 import com.ronald.peluqueriacanina.logica.Mascota;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -67,6 +68,11 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
 
         btnBorrar.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
 
         btnModificar.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         btnModificar.setText("Modificar");
@@ -167,6 +173,32 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         cargarDatos();
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        //si hay clientes en la base de datos borramos
+        if (tbTablaInformacion.getRowCount() > 0){
+            //si tenomos seleccionado a un cliente podemos borrar
+            if(tbTablaInformacion.getSelectedRow() != -1){
+                int numeroCliente = Integer.parseInt(String.valueOf(tbTablaInformacion.getValueAt(tbTablaInformacion.getSelectedRow(), 0)));
+                
+                controladoraLogica.eliminarMascota(numeroCliente);
+                
+                mostrarMensaje("Cliente Eliminado", "Eliminar Cliente");
+                //volvemos a cargar los datos una vez que hayamos eliminado al seleccionado
+                cargarDatos();
+            }
+            else{
+                mostrarMensaje("No hay cliente seleccionado", "Error al Eliminar Cliente");
+            }
+        }
+        else{
+            mostrarMensaje("No hay Clientes para eliminar", "Error al Eliminar Cliente");
+        }
+    }//GEN-LAST:event_btnBorrarActionPerformed
+    
+    public void mostrarMensaje(String mensaje, String titulo){
+        JOptionPane.showMessageDialog(null, mensaje, titulo, HEIGHT);
+    }
     
     private void cargarDatos() {
         DefaultTableModel tablaModelo = new DefaultTableModel(){
