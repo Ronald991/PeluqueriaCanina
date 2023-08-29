@@ -272,7 +272,7 @@ public class VentanaNuevoCliente extends javax.swing.JFrame {
 
     private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
         
-        String nombre = txtDireccionCliente.getText();
+        String nombre = txtNombreCliente.getText();
         String telefono = txtTelefonoCliente.getText();
         String direccion = txtDireccionCliente.getText();
         

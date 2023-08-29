@@ -76,6 +76,11 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
 
         btnModificar.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id de Cliente", "Nombre de Cliente", "Id de Mascota ", "Nombre de Mascota " }));
@@ -195,6 +200,30 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
             mostrarMensaje("No hay Clientes para eliminar", "Error al Eliminar Cliente");
         }
     }//GEN-LAST:event_btnBorrarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        if (tbTablaInformacion.getRowCount() > 0){
+            //si tenomos seleccionado a un cliente podemos borrar
+            if(tbTablaInformacion.getSelectedRow() != -1){
+                int numeroCliente = Integer.parseInt(String.valueOf(tbTablaInformacion.getValueAt(tbTablaInformacion.getSelectedRow(), 0)));
+                
+                VentanaModificarCliente ventanaModificar = new VentanaModificarCliente(numeroCliente);
+                ventanaModificar.setTitle("Modificar Datos de Cliente");
+                ventanaModificar.setVisible(true);
+                ventanaModificar.setLocationRelativeTo(null);
+                
+                
+                //volvemos a cargar los datos una vez que hayamos eliminado al seleccionado
+                cargarDatos();
+            }
+            else{
+                mostrarMensaje("No hay cliente seleccionado", "Error al modificar Cliente");
+            }
+        }
+        else{
+            mostrarMensaje("No existen clientes para Modificar", "Error al Eliminar Cliente");
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
     
     public void mostrarMensaje(String mensaje, String titulo){
         JOptionPane.showMessageDialog(null, mensaje, titulo, HEIGHT);

@@ -51,6 +51,10 @@ public class Controladora {
         controladoraPersistencia.eliminarCliente(numeroCliente);
     }
 
+    public Mascota getCliente(int numeroCliente) {
+        return controladoraPersistencia.getCliente(numeroCliente);
+    }
+
    
     
 }

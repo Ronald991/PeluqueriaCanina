@@ -1,6 +1,7 @@
 package com.ronald.peluqueriacanina.gui;
 
 import com.ronald.peluqueriacanina.logica.Controladora;
+import com.ronald.peluqueriacanina.logica.Mascota;
 import javax.swing.JOptionPane;
 
 
@@ -13,10 +14,13 @@ public class VentanaModificarCliente extends javax.swing.JFrame {
     
     Controladora controladoraLogica = null;
     
-    public VentanaModificarCliente() {
+    public VentanaModificarCliente(int numeroCliente) {
         
         controladoraLogica = new Controladora();
+        
         initComponents();
+        
+        cargarDatos(numeroCliente);
     }
 
     @SuppressWarnings("unchecked")
@@ -288,9 +292,35 @@ public class VentanaModificarCliente extends javax.swing.JFrame {
                 mascotaRaza, mascotaColor, observaciones, esAlergico, esEspecial);
         
         //una vez que acabe envía un mensaje indicando que se creo el objeto
-        JOptionPane.showMessageDialog(this, "El objeto fue añadido correctamente");
+        JOptionPane.showMessageDialog(this, "El objeto fue actualizado correctamente");
     }//GEN-LAST:event_btnActualizarClienteActionPerformed
-
+    
+    
+    private void cargarDatos(int numeroCliente){
+        Mascota mascota = controladoraLogica.getCliente(numeroCliente);
+        
+        txtNombreCliente.setText(mascota.getCliente().getNombre());
+        txtTelefonoCliente.setText(mascota.getCliente().getTelefono());
+        txtDireccionCliente.setText(mascota.getCliente().getDireccion());
+        txtNombreMascota.setText(mascota.getNombre());
+        txtRaza.setText(mascota.getRaza());
+        txtColor.setText(mascota.getColor());
+        txtObservaciones.setText(mascota.getObservaciones());
+        if("Si".equals(mascota.isEsAlergico())){
+            cmbAlergico.setSelectedIndex(1);
+        }
+        else{
+            cmbAlergico.setSelectedIndex(2);
+        }
+        
+        if("Si".equalsIgnoreCase(mascota.isEsEspecial())){
+            cmbAtencionEspecial.setSelectedIndex(1);
+        }
+        else{
+            cmbAtencionEspecial.setSelectedIndex(2);
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarCliente;
