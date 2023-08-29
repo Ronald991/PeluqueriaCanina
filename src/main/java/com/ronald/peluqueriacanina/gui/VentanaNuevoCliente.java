@@ -272,10 +272,12 @@ public class VentanaNuevoCliente extends javax.swing.JFrame {
 
     private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
         
+        //Datos del cliente
         String nombre = txtNombreCliente.getText();
         String telefono = txtTelefonoCliente.getText();
         String direccion = txtDireccionCliente.getText();
         
+        //Datos de la mascota
         String mascotaNombre = txtNombreMascota.getText();
         String mascotaRaza = txtRaza.getText();
         String mascotaColor = txtColor.getText();
@@ -287,7 +289,7 @@ public class VentanaNuevoCliente extends javax.swing.JFrame {
                 mascotaRaza, mascotaColor, observaciones, esAlergico, esEspecial);
         
         //una vez que acabe envía un mensaje indicando que se creo el objeto
-        JOptionPane.showMessageDialog(this, "El objeto fue añadido correctamente");
+        JOptionPane.showMessageDialog(this, "El Cliente se actualizo correctamente");
     }//GEN-LAST:event_btnCrearClienteActionPerformed
 
 
