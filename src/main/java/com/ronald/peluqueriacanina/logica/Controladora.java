@@ -55,6 +55,37 @@ public class Controladora {
         return controladoraPersistencia.getCliente(numeroCliente);
     }
 
+    public void actualizarCliente(Mascota mascota, String nombre, String telefono, String direccion,
+            String mascotaNombre, String mascotaRaza, String mascotaColor, String observaciones,
+            String esAlergico, String esEspecial) {
+        
+        mascota.setNombre(mascotaNombre);
+        mascota.setRaza(mascotaRaza);
+        mascota.setColor(mascotaColor);
+        mascota.setObservaciones(observaciones);
+        mascota.setEsAlergico(esAlergico);
+        mascota.setEsEspecial(esEspecial);
+        
+        controladoraPersistencia.actualizarMascota(mascota);
+        
+        Cliente cliente = buscarDuenio(mascota.getCliente());
+        cliente.setNombre(nombre);
+        cliente.setTelefono(telefono);
+        cliente.setDireccion(direccion);
+        
+        modificarDuenio(cliente);
+        
+        
+    }
+
+    private Cliente buscarDuenio(Cliente cliente) {
+        return controladoraPersistencia.buscarCliente(cliente);
+    }
+
+    private void modificarDuenio(Cliente cliente) {
+        controladoraPersistencia.actualizarCliente(cliente);
+    }
+
    
     
 }

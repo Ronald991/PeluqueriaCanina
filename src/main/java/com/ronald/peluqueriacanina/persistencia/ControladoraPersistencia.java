@@ -41,4 +41,26 @@ public class ControladoraPersistencia {
         return mascotaJPA.findMascota(numeroCliente);
     }
     
+     public void actualizarMascota(Mascota mascota) {
+        try {
+            mascotaJPA.edit(mascota);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
+    public void actualizarCliente(Cliente cliente) {
+        try {
+            clienteJPA.edit(cliente);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+   
+    public Cliente buscarCliente(Cliente cliente) {
+        return clienteJPA.findCliente(cliente.getId());
+    }
+    
 }
