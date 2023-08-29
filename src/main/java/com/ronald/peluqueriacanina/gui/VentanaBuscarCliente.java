@@ -28,12 +28,8 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbTablaInformacion = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         btnBorrar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        txtBuscar = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -63,9 +59,6 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbTablaInformacion);
 
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
-        jLabel2.setText("Buscar por:");
-
         btnBorrar.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         btnBorrar.setText("Borrar");
         btnBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -82,12 +75,6 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id de Cliente", "Nombre de Cliente", "Id de Mascota ", "Nombre de Mascota " }));
-
-        btnBuscar.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
-        btnBuscar.setText("Buscar");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -95,40 +82,24 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel2)
                     .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBorrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(btnBorrar)
+                .addGap(40, 40, 40)
+                .addComponent(btnModificar)
+                .addContainerGap(254, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(btnBorrar)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnModificar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
@@ -202,8 +173,9 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        //si hay por lo menos una fila para realizar la accion
         if (tbTablaInformacion.getRowCount() > 0){
-            //si tenomos seleccionado a un cliente podemos borrar
+            //si tenemos seleccionado a un cliente podemos borrar
             if(tbTablaInformacion.getSelectedRow() != -1){
                 int numeroCliente = Integer.parseInt(String.valueOf(tbTablaInformacion.getValueAt(tbTablaInformacion.getSelectedRow(), 0)));
                 
@@ -211,10 +183,10 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
                 ventanaModificar.setTitle("Modificar Datos de Cliente");
                 ventanaModificar.setVisible(true);
                 ventanaModificar.setLocationRelativeTo(null);
-                
-                
                 //volvemos a cargar los datos una vez que hayamos eliminado al seleccionado
                 cargarDatos();
+                
+                this.dispose();
             }
             else{
                 mostrarMensaje("No hay cliente seleccionado", "Error al modificar Cliente");
@@ -223,6 +195,7 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
         else{
             mostrarMensaje("No existen clientes para Modificar", "Error al Eliminar Cliente");
         }
+        
     }//GEN-LAST:event_btnModificarActionPerformed
     
     public void mostrarMensaje(String mensaje, String titulo){
@@ -259,17 +232,13 @@ public class VentanaBuscarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrar;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelTitulo;
     private javax.swing.JTable tbTablaInformacion;
-    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 
     
