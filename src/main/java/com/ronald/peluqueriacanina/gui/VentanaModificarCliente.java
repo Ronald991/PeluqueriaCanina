@@ -13,6 +13,7 @@ public class VentanaModificarCliente extends javax.swing.JFrame {
 
     
     Controladora controladoraLogica = null;
+    Mascota mascota;
     
     public VentanaModificarCliente(int numeroCliente) {
         
@@ -288,16 +289,21 @@ public class VentanaModificarCliente extends javax.swing.JFrame {
         String esAlergico = (String) cmbAlergico.getSelectedItem();
         String esEspecial = (String) cmbAtencionEspecial.getSelectedItem();
         
-        controladoraLogica.crearCliente(nombre, telefono, direccion, mascotaNombre,
+        controladoraLogica.actualizarCliente(mascota, nombre, telefono, direccion, mascotaNombre,
                 mascotaRaza, mascotaColor, observaciones, esAlergico, esEspecial);
         
         //una vez que acabe envía un mensaje indicando que se creo el objeto
         JOptionPane.showMessageDialog(this, "El objeto fue actualizado correctamente");
+        
+        VentanaBuscarCliente ventanaBuscar = new VentanaBuscarCliente();
+        ventanaBuscar.setVisible(true);
+        ventanaBuscar.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnActualizarClienteActionPerformed
     
     
     private void cargarDatos(int numeroCliente){
-        Mascota mascota = controladoraLogica.getCliente(numeroCliente);
+        this.mascota = controladoraLogica.getCliente(numeroCliente);
         
         txtNombreCliente.setText(mascota.getCliente().getNombre());
         txtTelefonoCliente.setText(mascota.getCliente().getTelefono());
@@ -321,7 +327,8 @@ public class VentanaModificarCliente extends javax.swing.JFrame {
         }
         
     }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarCliente;
     private javax.swing.JButton btnLimpiar;
