@@ -147,7 +147,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     //Función para implementar la salida del programa
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
+        //finalizamos la ejecución de la aplicación
+        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
     
     //Función para buscar a un Cliente ya existente, también para eliminar o

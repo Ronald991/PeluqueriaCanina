@@ -11,11 +11,11 @@ import javax.swing.JOptionPane;
 public class VentanaNuevoCliente extends javax.swing.JFrame {
 
     
-    Controladora controladoraLogica = new Controladora();
+    Controladora controladoraLogica = null;
     
     public VentanaNuevoCliente() {
         
-        //controladoralogica = new Controladora();
+        controladoraLogica = new Controladora();
         initComponents();
     }
 
